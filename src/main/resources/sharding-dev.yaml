@@ -1,0 +1,42 @@
+mode:
+  type: Standalone
+  repository:
+    type: JDBC
+
+dataSources:
+  names: business
+  business:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: org.h2.Driver
+    jdbcUrl: jdbc:h2:mem:ccic_sync_data;INIT=RUNSCRIPT FROM 'classpath:db/mysql.sql'
+    username: sa
+    password:
+
+rules:
+  - !SHARDING
+    tables:
+      data_interface_status: # 分表，逻辑表名 数据库未分表的表名
+        # 节点数据
+        actualDataNodes: business.data_interface_status_202$->{201..912} #数据节点,均匀分布
+        tableStrategy: # 配置分表策略
+          standard: # 用于单分片键的标准分片场景
+            shardingColumn: ADDUP_CYCLE # 分片列名称
+            shardingAlgorithmName: data-interface-status-inline # 分片算法名称 不能使用下划线
+        keyGenerateStrategy:
+          column: id
+          keyGeneratorName: data_interface_status_snowflake
+    bindingTables:
+      - data_interface_status
+    # 分片算法配置
+    sharding-algorithms:
+      data-interface-status-inline: # 分片算法名称 不能使用下划线
+        type: CLASS_BASED #自定义策略
+        props:
+          strategy: standard
+          algorithmClassName: com.example.sharding5.config.DateShardingAlgorithm
+    keyGenerators:
+      data_interface_status_snowflake:
+        type: SNOWFLAKE
+# 打印sql
+props:
+  sql-show: true

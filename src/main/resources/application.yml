@@ -1,0 +1,15 @@
+## server
+server:
+  port: 8088
+
+## spring
+spring:
+  application:
+    name: sharding5
+  profiles:
+    active: dev
+
+## mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath:mybatis/**/*.xml
+  typeAliasesPackage: com.example.sharding5.dao.entity
