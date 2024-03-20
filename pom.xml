@@ -126,12 +126,12 @@
         </dependencies>
     </dependencyManagement>
 
-    <!--    <repositories>-->
-    <!--        <repository>-->
-    <!--            <id>aliYun-maven</id>-->
-    <!--            <url>https://maven.aliyun.com/repository/public</url>-->
-    <!--        </repository>-->
-    <!--    </repositories>-->
+    <repositories>
+        <repository>
+            <id>aliYun-maven</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>

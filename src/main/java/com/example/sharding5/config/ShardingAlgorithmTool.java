@@ -71,7 +71,7 @@ public class ShardingAlgorithmTool {
                 conn.rollback();
             }
         } catch (Exception ex) {
-            log.error(ex.getMessage(), ex);
+//            log.error(ex.getMessage(), ex);
             ex.printStackTrace();
         }
     }
@@ -122,7 +122,7 @@ public class ShardingAlgorithmTool {
                 }
             }
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+//            log.error(e.getMessage(), e);
             e.printStackTrace();
         }
         return res;

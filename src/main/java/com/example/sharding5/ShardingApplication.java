@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Modified by:
  **/
 @SpringBootApplication
-@MapperScan({"com.example.sharding5.dao.mapper*"})
+@MapperScan("com.example.sharding5.dao.mapper*")
 public class ShardingApplication {
 
     public static void main(String[] args) {
