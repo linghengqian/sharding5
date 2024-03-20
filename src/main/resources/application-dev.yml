@@ -10,7 +10,7 @@ spring:
         dataOracle:
           username: sa
           password: ""
-          url: jdbc:h2:mem:ccic_sync_analog_data;INIT=RUNSCRIPT FROM 'classpath:db/oracle.sql'
+          url: jdbc:h2:mem:ccic_sync_analog_data;MODE=Oracle;INIT=RUNSCRIPT FROM 'classpath:db/oracle.sql'
           driver-class-name: org.h2.Driver
     hikari:
       connection-timeout: 30000

@@ -17,7 +17,7 @@
         <dynamic-datasource.version>4.3.0</dynamic-datasource.version>
         <mysql-connector.version>8.3.0</mysql-connector.version>
         <shardingsphere.version>5.4.1</shardingsphere.version>
-        <snakeyaml.version>2.2</snakeyaml.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
     </properties>
     <dependencies>
 
@@ -31,7 +31,6 @@
             <groupId>org.apache.shardingsphere</groupId>
             <artifactId>shardingsphere-jdbc-core</artifactId>
             <version>${shardingsphere.version}</version>
-            <type>pom</type>
         </dependency>
 
         <dependency>
@@ -164,7 +163,7 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <skipTests>true</skipTests>
+                    <skipTests>false</skipTests>
                 </configuration>
             </plugin>
         </plugins>

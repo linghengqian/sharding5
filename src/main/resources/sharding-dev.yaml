@@ -4,11 +4,10 @@ mode:
     type: JDBC
 
 dataSources:
-  names: business
   business:
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
     driverClassName: org.h2.Driver
-    jdbcUrl: jdbc:h2:mem:ccic_sync_data;INIT=RUNSCRIPT FROM 'classpath:db/mysql.sql'
+    jdbcUrl: jdbc:h2:mem:ccic_sync_data;MODE=MYSQL;IGNORECASE=TRUE;CASE_INSENSITIVE_IDENTIFIERS=TRUE;INIT=RUNSCRIPT FROM 'classpath:db/mysql.sql'
     username: sa
     password:
 
@@ -28,7 +27,7 @@ rules:
     bindingTables:
       - data_interface_status
     # 分片算法配置
-    sharding-algorithms:
+    shardingAlgorithms:
       data-interface-status-inline: # 分片算法名称 不能使用下划线
         type: CLASS_BASED #自定义策略
         props:
